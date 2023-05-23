@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shopping_apps/features/account/address/screens/address_screen.dart';
 import 'package:flutter_shopping_apps/features/auth/screens/auth_screen.dart';
+import 'package:flutter_shopping_apps/features/home/screens/all_deals.dart';
 import 'package:flutter_shopping_apps/features/home/screens/category_deals.dart';
 import 'package:flutter_shopping_apps/features/order%20details/orders_details.dart';
 import 'package:flutter_shopping_apps/features/product%20details/screens/produc_details_screen.dart';
@@ -66,13 +67,18 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
           totalAmount: totalAmount,
         ),
       );
-      case OrdersDetails.routeName:
+    case OrdersDetails.routeName:
       var orders = routeSettings.arguments as Order;
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => OrdersDetails(
           order: orders,
         ),
+      );
+    case AllDealsScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => AllDealsScreen(),
       );
     default:
       return MaterialPageRoute(

@@ -68,23 +68,3 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-
-//  Builder(
-//         builder: (context) {
-//           return FutureBuilder(
-//               future: authService.getUserData(context),
-//               builder: (context, snapshot) {
-//                 if (snapshot.connectionState == ConnectionState.done) {
-//                   return Provider.of<UserProvider>(context)
-//                           .user
-//                           .token
-//                           .isNotEmpty
-//                       ? Provider.of<UserProvider>(context).user.type == 'user'
-//                           ? const BottomBar()
-//                           : const AdminScreen()
-//                       : const AuthScreen();
-//                 }
-//                 return const Center(child: CircularProgressIndicator());
-//               });
-//         },
-//       ),

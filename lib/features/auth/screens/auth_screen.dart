@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_shopping_apps/common/widgets/customButton.dart';
 import 'package:flutter_shopping_apps/common/widgets/customTextField.dart';
 import 'package:flutter_shopping_apps/constant/global_var.dart';
 import 'package:flutter_shopping_apps/features/auth/services/auth_services.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 enum Auth {
   signin,
@@ -55,16 +53,17 @@ class _AuthScreenState extends State<AuthScreen> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: GlobalVariables.greyBackgroundCOlor,
+      backgroundColor: const Color.fromARGB(255, 238, 247, 250),
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Welcome',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
+              style: GoogleFonts.aleo(fontSize: 25),
             ),
             ListTile(
               tileColor: _auth == Auth.signup
@@ -86,8 +85,8 @@ class _AuthScreenState extends State<AuthScreen> {
             ),
             if (_auth == Auth.signup)
               Container(
-                padding: const EdgeInsets.all(8),
                 color: GlobalVariables.backgroundColor,
+                padding: const EdgeInsets.all(8),
                 child: Form(
                   key: _signUpFormKey,
                   child: Column(
@@ -115,6 +114,8 @@ class _AuthScreenState extends State<AuthScreen> {
                       ),
                       CustomButton(
                         text: 'Sign Up',
+                        color: Colors.deepPurple,
+                        colorFont: Colors.white,
                         onTap: () {
                           if (_signUpFormKey.currentState!.validate()) {
                             signUpUser();
@@ -167,6 +168,8 @@ class _AuthScreenState extends State<AuthScreen> {
                       ),
                       CustomButton(
                         text: 'Sign In',
+                        colorFont: Colors.white,
+                        color: Colors.deepPurple,
                         onTap: () {
                           if (_signInFormKey.currentState!.validate()) {
                             signInUser();

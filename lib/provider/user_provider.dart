@@ -5,14 +5,16 @@ import 'package:flutter_shopping_apps/models/user.dart';
 
 class UserProvider extends ChangeNotifier {
   User _user = User(
-      id: '',
-      name: '',
-      email: '',
-      password: '',
-      address: '',
-      type: '',
-      token: '',
-      cart: []);
+    id: '',
+    name: '',
+    email: '',
+    password: '',
+    address: '',
+    type: '',
+    token: '',
+    cart: [],
+ 
+  );
 
   User get user => _user;
 

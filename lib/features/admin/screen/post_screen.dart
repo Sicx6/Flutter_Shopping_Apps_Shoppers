@@ -56,33 +56,30 @@ class _PostScreenState extends State<PostScreen> {
                 ),
                 itemBuilder: (context, index) {
                   final productData = products![index];
-                  return Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 140,
-                          child: SingleProduct(img: productData.images[0]),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Expanded(
-                              child: Text(
-                                productData.name,
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 2,
-                              ),
+                  return Column(
+                    children: [
+                      SizedBox(
+                        height: 140,
+                        child: SingleProduct(img: productData.images[0]),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              productData.name,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
                             ),
-                            IconButton(
-                                onPressed: () {
-                                  deleteProduct(productData, index);
-                                },
-                                icon: const Icon(Icons.delete_outline)),
-                          ],
-                        ),
-                      ],
-                    ),
+                          ),
+                          IconButton(
+                              onPressed: () {
+                                deleteProduct(productData, index);
+                              },
+                              icon: const Icon(Icons.delete_outline)),
+                        ],
+                      ),
+                    ],
                   );
                 }),
             floatingActionButton: FloatingActionButton(

@@ -7,6 +7,7 @@ import 'package:flutter_shopping_apps/constant/global_var.dart';
 import 'package:flutter_shopping_apps/features/product%20details/services/product_details_service.dart';
 import 'package:flutter_shopping_apps/features/search/search_screen.dart';
 import 'package:flutter_shopping_apps/models/product.dart';
+import 'package:flutter_shopping_apps/models/user.dart';
 import 'package:flutter_shopping_apps/provider/user_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -147,12 +148,27 @@ class _DetailScreenState extends State<DetailScreen> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-              child: Text(
-                widget.product.name,
-                style: TextStyle(fontSize: 15),
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                  child: Text(
+                    widget.product.name,
+                    style: TextStyle(fontSize: 15),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {},
+                  child: Padding(
+                    padding: EdgeInsets.only(right: 8),
+                    child: Icon(
+                      Icons.bookmark,
+                    ),
+                  ),
+                ),
+              ],
             ),
             CarouselSlider(
               items: widget.product.images.map((i) {

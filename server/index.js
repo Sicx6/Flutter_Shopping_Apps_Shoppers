@@ -1,4 +1,3 @@
-console.log('hello world');
 //import from pckg
 const express = require('express');
 const mongoose = require('mongoose');

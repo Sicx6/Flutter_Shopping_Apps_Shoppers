@@ -1,6 +1,10 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+
+import 'package:flutter_shopping_apps/features/home/screens/all_deals.dart';
+import 'package:flutter_shopping_apps/features/home/screens/widget/recommended_deals_screen.dart';
 import 'package:flutter_shopping_apps/features/home/services/home_services.dart';
 import 'package:flutter_shopping_apps/features/product%20details/screens/produc_details_screen.dart';
 import 'package:flutter_shopping_apps/models/product.dart';
@@ -16,6 +20,7 @@ class DealOfDay extends StatefulWidget {
 
 class _DealOfDayState extends State<DealOfDay> {
   Product? product;
+
   final HomeServices homeServices = HomeServices();
 
   @override
@@ -49,8 +54,7 @@ class _DealOfDayState extends State<DealOfDay> {
                       child: const Text(
                         'Deal Of The day',
                         style: TextStyle(
-                          fontSize: 20,
-                        ),
+                            fontSize: 20, fontWeight: FontWeight.w600),
                       ),
                     ),
                     Image.network(
@@ -76,32 +80,39 @@ class _DealOfDayState extends State<DealOfDay> {
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: product!.images
-                              .map(
-                                (e) => Image.network(
-                                  e,
-                                  fit: BoxFit.fitWidth,
-                                  height: 150,
-                                  width: 150,
-                                ),
-                              )
-                              .toList()),
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text(
+                            'Recommended Product',
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.w600),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, AllDealsScreen.routeName);
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 15,
+                              ).copyWith(
+                                left: 15,
+                              ),
+                              alignment: Alignment.topLeft,
+                              child: Text(
+                                'See All Deals',
+                                style: TextStyle(color: Colors.cyan[800]),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 15,
-                      ).copyWith(
-                        left: 15,
-                      ),
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        'See All Deals',
-                        style: TextStyle(color: Colors.cyan[800]),
-                      ),
+                    RecommendProduct(
+                      product: product!,
                     ),
                   ],
                 ),

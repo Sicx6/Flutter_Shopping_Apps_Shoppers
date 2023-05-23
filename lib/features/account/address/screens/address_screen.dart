@@ -36,10 +36,12 @@ class _AddressScreenState extends State<AddressScreen> {
   @override
   void initState() {
     super.initState();
-    paymentItems.add(PaymentItem(
-        amount: widget.totalAmount,
-        label: 'Total Amount',
-        status: PaymentItemStatus.final_price));
+    paymentItems.add(
+      PaymentItem(
+          amount: widget.totalAmount,
+          label: 'Total Amount',
+          status: PaymentItemStatus.final_price),
+    );
   }
 
   @override
